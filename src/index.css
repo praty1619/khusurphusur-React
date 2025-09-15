@@ -373,11 +373,6 @@ html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 10px;
-  }
-
   .workshop-icons {
     flex-direction: column;
   }
@@ -743,67 +738,6 @@ html {
 }
 
 
-/* Floating Navbar Styles */
-.floating-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  /* Semi-transparent background */
-  padding: 15px 20px;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  /* Add some shadow for effect */
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.nav-links {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links li {
-  display: inline;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #f39c12;
-  /* Highlighted color on hover */
-}
-
-/* Hamburger button styles */
-.hamburger {
-  display: none;
-  cursor: pointer;
-}
-
-.hamburger i {
-  font-size: 24px;
-  color: white;
-}
-
-
 /* Gallery Section Wrapper */
 .masonary-grid {
   padding: 50px 20px;
@@ -814,12 +748,6 @@ html {
   box-sizing: border-box;
   /* light background to pop */
 }
-
-/* .masonary-grid {
-    padding: 50px 10px;
-    
-    position: relative;
-} */
 
 /* 🎯 Style only the h1 inside masonary-grid */
 .masonary-grid>h1 {
@@ -1029,50 +957,6 @@ html {
     column-count: 1;
   }
 }
-
-/* Media query for mobile view */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    /* Hide nav links by default on mobile */
-    position: absolute;
-    top: 60px;
-    /* Below the navbar */
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    flex-direction: column;
-    text-align: center;
-    padding: 10px 0;
-  }
-
-  .nav-links.active {
-    display: flex;
-    /* Show the links when active (after clicking the hamburger) */
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-  }
-
-  .hamburger {
-    display: block;
-    /* Show the hamburger icon */
-  }
-
-  .nav-links a {
-    font-size: 18px;
-    color: white;
-  }
-}
-
-/* Optional floating tab style for larger screens */
-@media (min-width: 769px) {
-  .floating-navbar {
-    justify-content: center;
-  }
-}
-
 
 /* Section styling */
 .video-reviews {
@@ -1351,4 +1235,60 @@ html {
   .video-card video {
     border-radius: 12px;
   }
+}
+
+/* Nav Bar Styles */
+
+.fab-navbar {
+  position: fixed;
+  top: 1.5rem;
+  /* instead of bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  /* space between items */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.fab-item {
+  position: relative;
+  color: #eee;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+}
+
+.fab-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.fab-item.active {
+  color: #fff;
+  background: linear-gradient(135deg, #6d5dfc, #46c2ff);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.fab-item::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background: #46c2ff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.fab-item:hover::after {
+  width: 100%;
+  left: 0;
 }

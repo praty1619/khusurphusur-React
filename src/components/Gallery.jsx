@@ -24,7 +24,7 @@ const Gallery = () => {
     const closeLightbox = () => setLightboxOpen(false);
 
     return (
-        <div className="masonary-grid">
+        <div className="masonary-grid" id="gallery">
             <h1>खुसुर - फुसुर Gallery</h1>
 
             {/* Highlight Grid */}

@@ -1,23 +1,24 @@
 import "./index.css";
-// import Navbar from "./components/Navbar";
+import FabNavbar from "./components/FabNavbar";
 import Hero from "./components/Hero";
 import PersonalSection from "./components/PersonalSection";
 import DetailsSection from "./components/DetailsSection";
 import Gallery from "./components/Gallery";
-// import VideoReviews from "./components/VideoReviews";
-// import Footer from "./components/Footer";
+import VideoReviews from "./components/VideoReviews";
+import Footer from "./components/Footer";
 
 function App(){
   return (
     <>
-      {/* <Navbar/> */}
+      <FabNavbar/>
       <Hero/>
       <PersonalSection />
       <DetailsSection />
       <Gallery />
+      <VideoReviews />
+      <Footer />
       {/*
-      <VideoReviews/>
-      <Footer/> */}
+     */}
     </>
   );
 }
