@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const images = [
     "image1.webp", "image2.webp", "image3.webp", "image4.webp",
@@ -13,23 +13,15 @@ const Gallery = () => {
     const [showFullGallery, setShowFullGallery] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxImg, setLightboxImg] = useState("");
+    const [lightboxCaption, setLightboxCaption] = useState("");
 
-    const openLightbox = (img) => {
+    const openLightbox = (img, alt) => {
         setLightboxImg(img);
+        setLightboxCaption(alt);
         setLightboxOpen(true);
     };
 
     const closeLightbox = () => setLightboxOpen(false);
-
-    const openFullGallery = () => {
-        setShowFullGallery(true);
-        document.body.style.overflow = "hidden";
-    };
-
-    const closeFullGallery = () => {
-        setShowFullGallery(false);
-        document.body.style.overflow = "auto";
-    };
 
     return (
         <div className="masonary-grid">
@@ -42,39 +34,51 @@ const Gallery = () => {
                         <img
                             src={`/khusur phusur image/${img}`}
                             alt={`Image ${i + 1}`}
-                            onClick={() => openLightbox(`/khusur phusur image/${img}`)}
+                            onClick={() => openLightbox(`/khusur phusur image/${img}`, `Image ${i + 1}`)}
                         />
                     </div>
                 ))}
             </div>
 
-            <button id="show-more-btn" onClick={openFullGallery}>+ Show More</button>
+            <button id="show-more-btn" onClick={() => setShowFullGallery(true)}>
+                + Show More
+            </button>
 
-            {/* Full Gallery Modal */}
-            {showFullGallery && (
-                <div className="gallery-modal">
-                    <span className="close" onClick={closeFullGallery}>&times;</span>
-                    <div className="full-grid">
-                        {images.map((img, i) => (
-                            <div className="grid-item" key={i}>
-                                <img
-                                    src={`/khusur phusur image/${img}`}
-                                    alt={`Image ${i + 1}`}
-                                    onClick={() => openLightbox(`/khusur phusur image/${img}`)}
-                                />
-                            </div>
-                        ))}
-                    </div>
+            {/* Full Gallery Modal (always in DOM, toggled via inline style) */}
+            <div
+                id="fullGallery"
+                style={{ display: showFullGallery ? "block" : "none" }}
+            >
+                <span className="close" onClick={() => setShowFullGallery(false)}>
+                    &times;
+                </span>
+                <div className="full-grid">
+                    {images.map((img, i) => (
+                        <div className="grid-item" key={i}>
+                            <img
+                                src={`/khusur phusur image/${img}`}
+                                alt={`Image ${i + 1}`}
+                                onClick={() =>
+                                    openLightbox(`/khusur phusur image/${img}`, `Image ${i + 1}`)
+                                }
+                            />
+                        </div>
+                    ))}
                 </div>
-            )}
+            </div>
 
-            {/* Lightbox */}
-            {lightboxOpen && (
-                <div id="lightbox" onClick={(e) => e.target === e.currentTarget && closeLightbox()}>
-                    <span className="close" onClick={closeLightbox}>&times;</span>
-                    <img className="lightbox-content" src={lightboxImg} alt="Lightbox" />
-                </div>
-            )}
+            {/* Lightbox (always in DOM, toggled via inline style) */}
+            <div
+                id="lightbox"
+                style={{ display: lightboxOpen ? "block" : "none" }}
+                onClick={(e) => e.target === e.currentTarget && closeLightbox()}
+            >
+                <span className="close" onClick={closeLightbox}>
+                    &times;
+                </span>
+                <img id="lightbox-img" src={lightboxImg} alt="Lightbox" />
+                <div id="caption">{lightboxCaption}</div>
+            </div>
         </div>
     );
 };

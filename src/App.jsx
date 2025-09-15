@@ -16,7 +16,6 @@ function App(){
       <DetailsSection />
       <Gallery />
       {/*
-      <WorkshopSection/>
       <VideoReviews/>
       <Footer/> */}
     </>

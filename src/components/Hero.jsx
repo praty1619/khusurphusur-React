@@ -2,16 +2,14 @@ import { useState, useEffect } from "react";
 
 function Hero() {
     const [text, setText] = useState("");
-    const fullText = "A  Workshop Designed for Your Breath & Voice";
+    const fullText = "A Workshop Designed for Your Breath & Voice";
     const speed = 100;
 
     useEffect(() => {
         let i = 0;
-        setText("");
-
         const interval = setInterval(() => {
-            setText((prev) => prev + fullText.charAt(i));
             i++;
+            setText(fullText.substring(0, i));
             if (i >= fullText.length) clearInterval(interval);
         }, speed);
 
