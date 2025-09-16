@@ -1,33 +1,25 @@
-import { useState } from "react";
-
-function FabNavbar() {
-    const [active, setActive] = useState(null);
-
-    // Map each menu item to your existing sections
+function FabNavbar({ setPage }) {
     const menuItems = [
-        { icon: "fa-home", label: "Home", link: "#container" }, // Hero
-        { icon: "fa-user", label: "About", link: "#personal-section" }, // PersonalSection
-        { icon: "fa-info-circle", label: "Details", link: "#details-section" }, // DetailsSection
-        { icon: "fa-images", label: "Gallery", link: "#gallery" }, // Gallery
-        { icon: "fa-video", label: "Video Reviews", link: "#video" }, // VideoReviews
-        { icon: "fa-envelope", label: "Contact Us", link: "#footer-section" }, // Footer
+        { label: "Home", page: "home" },
+        { label: "About", page: "about" },
+        { label: "Details", page: "details" },
+        { label: "Gallery", page: "gallery" },
+        { label: "Video Reviews", page: "video" },
+        { label: "Contact", page: "contact" },
     ];
 
     return (
         <nav className="fab-navbar">
             {menuItems.map((item, index) => (
-                <a
+                <button
                     key={index}
-                    href={item.link}
-                    className={`fab-item ${active === index ? "active" : ""}`}
-                    onClick={() => setActive(index)}
+                    onClick={() => setPage(item.page)}
+                    className="fab-item"
                 >
-                    <i className={`fas ${item.icon}`}></i>
-                    <span className="fab-label">{item.label}</span>
-                </a>
+                    {item.label}
+                </button>
             ))}
         </nav>
     );
 }
-
-export default FabNavbar;
+ export default FabNavbar
