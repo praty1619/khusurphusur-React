@@ -64,7 +64,7 @@ function DetailsSection() {
                                     who want to improve their self-expression.
                                 </p>
                             </div>
-                            <div className="fee">Course Fee: ₹35,000</div>
+                            <div className="fee">Course Fee: ₹54,999</div>
                         </div>
 
                         {/* Card 2 */}
@@ -90,7 +90,7 @@ function DetailsSection() {
                                     can immediately apply in your profession.
                                 </p>
                             </div>
-                            <div className="fee">Workshop Fee: ₹4,999</div>
+                            <div className="fee">Workshop Fee: ₹6,999</div>
                         </div>
 
                         {/* Card 3 */}
@@ -113,7 +113,7 @@ function DetailsSection() {
                                     performance and breath control.
                                 </p>
                             </div>
-                            <div className="fee">Counseling Fee: ₹1,000/hour</div>
+                            <div className="fee">Counseling Fee: ₹2,999/hour</div>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ const videos = [
     { src: "/videos/review1.mp4", title: "Student Feedback" },
     { src: "/videos/review2.mp4", title: "Student Feedback" },
     { src: "/videos/review3.mp4", title: "Student Feedback" },
+    { src: "/videos/review4.mp4", title: "Student Feedback" },
 ];
 
 function VideoReviews() {
